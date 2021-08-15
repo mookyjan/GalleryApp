@@ -1,7 +1,8 @@
-package com.mudassir.galleryapp
+package com.mudassir.galleryapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.mudassir.galleryapp.R
 
 class MainActivity : AppCompatActivity() {
 

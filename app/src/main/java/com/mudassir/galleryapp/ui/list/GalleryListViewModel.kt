@@ -1,14 +1,16 @@
-package com.mudassir.galleryapp.ui
+package com.mudassir.galleryapp.ui.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
+import androidx.paging.map
 import androidx.paging.rxjava3.cachedIn
 import com.github.ajalt.timberkt.Timber
-import com.mudassir.domain.entity.ImageItemEntity
 import com.mudassir.domain.usecase.GetImageListUseCase
 import com.mudassir.galleryapp.ui.base.BaseViewModel
+import com.mudassir.galleryapp.ui.list.model.ImageUiModel
+import com.mudassir.galleryapp.ui.list.model.mapToPresentation
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import javax.inject.Inject
@@ -18,19 +20,21 @@ class GalleryListViewModel @Inject constructor(private val getImageListUseCase: 
 
     private val TAG: String = GalleryListViewModel::class.java.name
 
-    private val _imageList = MutableLiveData<PagingData<ImageItemEntity>>()
-    var imageList: LiveData<PagingData<ImageItemEntity>> = _imageList
+    private val _imageList = MutableLiveData<PagingData<ImageUiModel>>()
+    var imageList: LiveData<PagingData<ImageUiModel>> = _imageList
 
 
     init {
         getImageList()
     }
 
-
+    /**
+     * call api to get the list of images
+     */
     fun getImageList(isRefresh: Boolean = true) {
         _loading.postValue(true)
         val result = getImageListUseCase.execute(isRefresh)
-//            .map { it.map { it.mapToPresentation() } }
+            .map { it.map { it.mapToPresentation() } }
             .cachedIn(viewModelScope)
         result.subscribeBy(onNext = {
             _loading.postValue(false)
@@ -45,18 +49,4 @@ class GalleryListViewModel @Inject constructor(private val getImageListUseCase: 
         }).addTo(compositeDisposable)
     }
 
-//    fun getImageList(params: GetImageListUseCase.Params) {
-//        operationStatus.value = Operation.Started
-//        getImageListUseCase(viewModelScope, params) {
-//            Timber.d { "response $it" }
-//            it.either(::handleFailure)
-//
-//            {
-//
-//                Timber.d { "$TAG image list api response $it" }
-//                _imageList.value = it
-//                operationStatus.value = Operation.Completed
-//            }
-//        }
-//    }
 }

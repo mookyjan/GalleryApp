@@ -1,4 +1,4 @@
-package com.mudassir.galleryapp.ui
+package com.mudassir.galleryapp.ui.list
 
 import android.app.AlertDialog
 import android.content.Context
@@ -10,18 +10,19 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.ajalt.timberkt.Timber
 import com.mudassir.domain.entity.ImageItemEntity
+import com.mudassir.galleryapp.AppConstants
 import com.mudassir.galleryapp.R
 import com.mudassir.galleryapp.databinding.GalleryListFragmentBinding
 import com.mudassir.galleryapp.di.modules.ViewModelFactory
-import com.mudassir.galleryapp.extensions.observe
 import com.mudassir.galleryapp.ui.base.BaseFragment
 import com.mudassir.galleryapp.ui.adapter.GalleryListAdapter
 import com.mudassir.galleryapp.ui.adapter.GalleryListAdapterCallback
 import com.mudassir.galleryapp.ui.adapter.LoadingGridStateAdapter
+import com.mudassir.galleryapp.ui.list.model.ImageUiModel
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -74,14 +75,13 @@ class GalleryListFragment : BaseFragment(), GalleryListAdapterCallback {
 
         })
 
-
         viewModel.loading.observe(viewLifecycleOwner){
             showProgress(it,false)
         }
-//
-//        viewModel.errorEvent.observe(viewLifecycleOwner){
-//            Toast.makeText(requireContext(),"$it", Toast.LENGTH_SHORT).show()
-//        }
+
+        viewModel.error.observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(),"$it", Toast.LENGTH_SHORT).show()
+        }
 
     }
 
@@ -112,8 +112,9 @@ class GalleryListFragment : BaseFragment(), GalleryListAdapterCallback {
         }
     }
 
-    override fun onItemClicked(item: ImageItemEntity) {
-        Timber.d { "image clicked $item" }
-        Toast.makeText(requireContext(),"Click on ${item.author}",Toast.LENGTH_SHORT).show()
+    override fun onItemClicked(item: ImageUiModel) {
+        val bundle = Bundle()
+        bundle.putParcelable(AppConstants.IMAGE_ARGU, item)
+        findNavController().navigate(R.id.action_galleryFragment_to_detailFragment, bundle)
     }
 }
