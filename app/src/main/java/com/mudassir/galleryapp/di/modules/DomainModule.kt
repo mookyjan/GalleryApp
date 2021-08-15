@@ -9,6 +9,9 @@ import dagger.Provides
 @Module
 class DomainModule {
 
+    /**
+     * provide imageList useCase
+     */
     @Provides
     fun provideImageListUseCase(
         schedulerProvider: SchedulerProvider,
