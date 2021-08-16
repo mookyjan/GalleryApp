@@ -113,7 +113,7 @@ object Libs {
 }
 
 object TestLibs {
-    const val JUNIT = "androidx.test.ext:junit:${Versions.JUNIT}"
+    const val JUNIT = "junit:junit:${Versions.JUNIT}"
     const val CORE_TEST ="android.arch.core:core-testing:${Versions.CORE_TEST}"
     const val TEST_RUNNER = "com.android.support.test:runner:${Versions.TEST_RUNNER}"
     const val MOCKITO = "org.mockito:mockito-core:${Versions.MOCKITO}"
