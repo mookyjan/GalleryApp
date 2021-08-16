@@ -18,9 +18,9 @@ class ImageListGateWayImpl (private val imagesListRepository: ImagesListReposito
             config = PagingConfig(
                 pageSize = 10,
                 enablePlaceholders = true,
-                maxSize = 30,
-                prefetchDistance = 5,
-                initialLoadSize = 20)
+                maxSize = 50,
+                prefetchDistance = 10,
+                initialLoadSize = 50)
         ){
             ImagesDataSource(imagesListRepository)
         }.flowable

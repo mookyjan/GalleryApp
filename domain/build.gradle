@@ -36,7 +36,7 @@ dependencies {
     implementation Libs.MOSHI
     implementation Libs.PAGING
 
-    testImplementation TestLibs.JUNIT
     testImplementation TestLibs.MOCKITO
+    testImplementation TestLibs.JUNIT
     testImplementation TestLibs.MOCKITO_HARRMAN
 }
