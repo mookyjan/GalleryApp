@@ -1,8 +1,9 @@
 package com.mudassir.domain
 
+import com.mudassir.domain.util.SchedulerProvider
 import io.reactivex.rxjava3.core.Single
 
-abstract class SingleUseCase<in Params,T> protected constructor(private val schedulers:SchedulerProvider) {
+abstract class SingleUseCase<in Params,T> protected constructor(private val schedulers: SchedulerProvider) {
 
     abstract fun buildUseCaseObservable(params: Params): Single<T>
 

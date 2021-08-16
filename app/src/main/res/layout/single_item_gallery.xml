@@ -5,7 +5,7 @@
     <data>
         <variable
             name="model"
-            type="com.mudassir.domain.entity.ImageItemEntity" />
+            type="com.mudassir.galleryapp.ui.list.model.ImageUiModel" />
     </data>
 
 

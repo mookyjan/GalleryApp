@@ -24,7 +24,7 @@ object Versions {
     const val MATERIAL = "1.4.0-alpha01"
     const val CONSTRAINT_LAYOUT = "2.0.4"
     const val CORE_KTX = "1.3.2"
-    const val FRAGMENT_KTX = "1.2.4"
+    const val FRAGMENT_KTX = "1.3.6"
     const val LIFECYCLE = "1.1.1"
     const val LIFECYCLE_VIEW_MODEL_KTX = "2.3.1"
     const val COIL = "0.11.0"
@@ -47,7 +47,7 @@ object Versions {
     const val GROUPIE ="2.9.0"
     /* test */
     const val JUNIT = "4.12"
-    const val MOCKITO ="3.1.0"
+    const val MOCKITO ="3.11.2"
     const val ANDROID_X_TEST = "2.1.0"
     const val  MOCKITOKOTLIN = "1.5.0"
     const val TEST_RUNNER = "1.2.0"

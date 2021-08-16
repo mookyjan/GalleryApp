@@ -11,19 +11,28 @@ import dagger.Provides
 @Module
 class DataModule {
 
-    @Provides
-    fun provideImageListRemoteDataSource(galleryAppService: GalleryAppService)
-            = GetImagesListRemoteDataSource(galleryAppService)
-
-
-    @Provides
-    fun provideImagesRepository(getImagesListRemoteDataSource: GetImagesListRemoteDataSource)
-            = ImagesListRepository(getImagesListRemoteDataSource)
+    /**
+     * provide galleryService
+     */
 
     @Provides
-    fun provideMovieGateWay(imagesListRepository: ImagesListRepository): ImageListGateWay
-            = ImageListGateWayImpl(imagesListRepository)
+    fun provideImageListRemoteDataSource(galleryAppService: GalleryAppService) =
+        GetImagesListRemoteDataSource(galleryAppService)
 
+    /**
+     * provide remote data source
+     */
+    @Provides
+    fun provideImagesRepository(getImagesListRemoteDataSource: GetImagesListRemoteDataSource) =
+        ImagesListRepository(getImagesListRemoteDataSource)
+
+
+    /**
+     * provide ImageList gateWay
+     */
+    @Provides
+    fun provideImageListGateWay(imagesListRepository: ImagesListRepository): ImageListGateWay =
+        ImageListGateWayImpl(imagesListRepository)
 
 
 }

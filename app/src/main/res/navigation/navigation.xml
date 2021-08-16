@@ -7,7 +7,22 @@
 
     <fragment
         android:id="@+id/galleryFragment"
-        android:name="com.mudassir.galleryapp.ui.GalleryListFragment"
-        android:label="articles_fragment"
-        tools:layout="@layout/gallery_list_fragment" />
+        android:name="com.mudassir.galleryapp.ui.list.GalleryListFragment"
+        android:label="galleryFragment"
+        tools:layout="@layout/gallery_list_fragment" >
+        <action
+            android:id="@+id/action_galleryFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.mudassir.galleryapp.ui.detail.DetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/detail_fragment"
+        >
+        <argument
+            android:name="ImageModel"
+            app:argType="com.mudassir.galleryapp.ui.list.model.ImageUiModel" />
+    </fragment>
 </navigation>

@@ -5,13 +5,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.mudassir.domain.entity.ImageItemEntity
 import com.mudassir.galleryapp.R
 import com.mudassir.galleryapp.databinding.SingleItemGalleryBinding
 import com.mudassir.galleryapp.ui.base.BaseViewHolder
+import com.mudassir.galleryapp.ui.list.model.ImageUiModel
 
 class GalleryListAdapter :
-    PagingDataAdapter<ImageItemEntity, GalleryListAdapter.GalleryItemViewHolder>(COMPARATOR) {
+    PagingDataAdapter<ImageUiModel, GalleryListAdapter.GalleryItemViewHolder>(COMPARATOR) {
 
     var callback: GalleryListAdapterCallback? = null
 
@@ -41,8 +41,8 @@ class GalleryListAdapter :
     }
 
     inner class GalleryItemViewHolder(val binding: SingleItemGalleryBinding) :
-        BaseViewHolder<ImageItemEntity>(binding.root) {
-        override fun bind(item: ImageItemEntity, position: Int) {
+        BaseViewHolder<ImageUiModel>(binding.root) {
+        override fun bind(item: ImageUiModel, position: Int) {
 
             binding.apply {
                 model = item
@@ -55,14 +55,14 @@ class GalleryListAdapter :
     }
 
 
-    object COMPARATOR : DiffUtil.ItemCallback<ImageItemEntity>() {
-        override fun areItemsTheSame(oldItem: ImageItemEntity, newItem: ImageItemEntity): Boolean {
+    object COMPARATOR : DiffUtil.ItemCallback<ImageUiModel>() {
+        override fun areItemsTheSame(oldItem: ImageUiModel, newItem: ImageUiModel): Boolean {
             return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: ImageItemEntity,
-            newItem: ImageItemEntity
+            oldItem: ImageUiModel,
+            newItem: ImageUiModel
         ): Boolean {
             return oldItem == newItem
         }
@@ -70,6 +70,6 @@ class GalleryListAdapter :
 }
 
 interface GalleryListAdapterCallback {
-    fun onItemClicked(item: ImageItemEntity)
+    fun onItemClicked(item: ImageUiModel)
 }
 

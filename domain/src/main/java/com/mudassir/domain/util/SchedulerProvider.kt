@@ -1,4 +1,4 @@
-package com.mudassir.domain
+package com.mudassir.domain.util
 
 import io.reactivex.rxjava3.core.Scheduler
 

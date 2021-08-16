@@ -1,6 +1,6 @@
 package com.mudassir.galleryapp.di.modules.scheduler
 
-import com.mudassir.domain.SchedulerProvider
+import com.mudassir.domain.util.SchedulerProvider
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.schedulers.Schedulers
