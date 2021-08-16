@@ -1,7 +1,7 @@
 package com.mudassir.domain.usecase
 
 import com.mudassir.domain.FlowableUseCase
-import com.mudassir.domain.SchedulerProvider
+import com.mudassir.domain.util.SchedulerProvider
 import com.mudassir.domain.entity.ImageItemEntity
 import com.mudassir.domain.gateway.ImageListGateWay
 import io.reactivex.rxjava3.core.Flowable

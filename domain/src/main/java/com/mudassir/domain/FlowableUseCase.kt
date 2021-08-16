@@ -1,9 +1,10 @@
 package com.mudassir.domain
 
 //import io.reactivex.Flowable
+import com.mudassir.domain.util.SchedulerProvider
 import io.reactivex.rxjava3.core.Flowable
 
-abstract class FlowableUseCase<in Params,T> protected constructor(private val schedulers:SchedulerProvider) {
+abstract class FlowableUseCase<in Params,T> protected constructor(private val schedulers: SchedulerProvider) {
 
     abstract fun buildUseCaseObservable(params: Params): Flowable<T>
 

@@ -49,4 +49,9 @@ class GalleryListViewModel @Inject constructor(private val getImageListUseCase: 
         }).addTo(compositeDisposable)
     }
 
+    /**
+     * refresh the list
+     */
+    fun refresh() = getImageList(true)
+
 }

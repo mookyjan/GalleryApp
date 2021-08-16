@@ -49,7 +49,7 @@ dependencies {
     implementation Libs.KOTLIN
     implementation Libs.CORE_KTX
     implementation Libs.APP_COMPAT
-    implementation "androidx.fragment:fragment-ktx:1.3.6"
+    implementation Libs.FRAGMENT_KTX
     implementation Libs.SUPPORT_CONSTRAINT_LAYOUT
     implementation Libs.TIMBER
 
@@ -86,13 +86,8 @@ dependencies {
     implementation Libs.LIFECYCLE_VIEW_MODEL_KTX
     implementation Libs.SDP
 
-    implementation 'com.aminography:redirectglide:2.0.1'
-    implementation 'com.squareup.picasso:picasso:2.71828'
     implementation Libs.GLIDE
     kapt Libs.GLIDE_COMPILER
-
-    implementation Libs.GROUPIE
-    implementation Libs.GROUPIE_BINDING
 
     testImplementation TestLibs.JUNIT
     testImplementation TestLibs.MOCKITO

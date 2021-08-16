@@ -52,7 +52,7 @@ class ImagesDataSource(val imagesListRepository: ImagesListRepository) :
     }
 
     override fun getRefreshKey(state: PagingState<Int, ImageItemEntity>): Int? {
-        TODO("Not yet implemented")
+       return state.anchorPosition
     }
 
 }

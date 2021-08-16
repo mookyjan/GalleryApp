@@ -9,6 +9,6 @@ import retrofit2.http.Query
 interface GalleryAppService {
 
     @GET("v2/list")
-    fun getImageList(@Query("page") page: Int =2,
-                     @Query("limit") limit: Int=100): Single<List<ImageListResponse>>
+    fun getImageList(@Query("page") page: Int,
+                     @Query("limit") limit: Int=50): Single<List<ImageListResponse>>
 }

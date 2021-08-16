@@ -1,6 +1,6 @@
 package com.mudassir.galleryapp.di.modules
 
-import com.mudassir.domain.SchedulerProvider
+import com.mudassir.domain.util.SchedulerProvider
 import com.mudassir.domain.gateway.ImageListGateWay
 import com.mudassir.domain.usecase.GetImageListUseCase
 import dagger.Module

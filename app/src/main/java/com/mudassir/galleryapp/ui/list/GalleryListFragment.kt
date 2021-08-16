@@ -63,20 +63,20 @@ class GalleryListFragment : BaseFragment(), GalleryListAdapterCallback {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initViews()
         setupRecyclerView()
         observeEvents()
     }
 
+    private fun initViews(){
+        mBinding.lySwipeRefresh.setProgressViewOffset(false, mBinding.root.height / 2, 500)
+    }
 
     private fun observeEvents() {
-        viewModel.imageList.observe(viewLifecycleOwner, Observer {
+        viewModel.imageList.observe(viewLifecycleOwner) {
             Timber.d { "list of images $it" }
             mAdapter.submitData(lifecycle, it)
 
-        })
-
-        viewModel.loading.observe(viewLifecycleOwner){
-            showProgress(it,false)
         }
 
         viewModel.error.observe(viewLifecycleOwner){
