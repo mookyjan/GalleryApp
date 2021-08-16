@@ -16,7 +16,7 @@ This project follows Clean Architecture with MVVM with Clean Architecture Design
   - [ViewBinding](https://developer.android.com/topic/libraries/view-binding) - Generates a binding class for each XML layout file present in that module and allows you to more easily write code that interacts with views.
   - [Data Binding](https://developer.android.com/topic/libraries/data-binding) - Used for data binding 
   - [Navigation Component](https://developer.android.com/guide/navigation/navigation-getting-started) - Used it for the navigation from one fragment to another fragments
-  - [Paging 3.0](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
+  - [Paging 3.0](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) - Used for unlimited scrolling
   - [Room](https://developer.android.com/reference/androidx/room/package-summary) -Used for local data storage
 - [Dependency Injection](https://developer.android.com/training/dependency-injection)
   - [Dagger2](https://dagger.dev/) - Standard library to incorporate Dagger dependency injection into an Android application. 
